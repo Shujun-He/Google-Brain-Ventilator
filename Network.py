@@ -109,6 +109,7 @@ class SAKTModel(nn.Module):
         #x, _ = self.pos_encoder(x)
 
         for lstm in self.pos_encoder:
+            lstm.LSTM.flatten_parameters()
             x=lstm(x)
 
         #x = self.downsample(x)
