@@ -76,30 +76,30 @@ masks=np.array(train['u_out']==0).reshape(-1, 80)
 targets = train[['pressure']].to_numpy().reshape(-1, 80)
 #exit()
 
-# if os.path.isfile('train.npy') and os.path.isfile('test.npy'):
-#     train=np.load('train.npy')
-#     test=np.load('test.npy')
-#     columns=np.load('columns.npy',allow_pickle=True)
-# else:
-print("Adding features")
-train = add_features(train)
-test = add_features(test)
+if os.path.isfile('train.npy') and os.path.isfile('test.npy'):
+    train=np.load('train.npy')
+    test=np.load('test.npy')
+    columns=np.load('columns.npy',allow_pickle=True)
+else:
+    print("Adding features")
+    train = add_features(train)
+    test = add_features(test)
 
-print("Dropping some features")
+    print("Dropping some features")
 
-train.drop(['pressure', 'id', 'breath_id'], axis=1, inplace=True)
-test = test.drop(['id', 'breath_id'], axis=1)
-columns=train.columns
-np.save('columns',np.array(train.columns))
+    train.drop(['pressure', 'id', 'breath_id'], axis=1, inplace=True)
+    test = test.drop(['id', 'breath_id'], axis=1)
+    columns=train.columns
+    np.save('columns',np.array(train.columns))
 
-print("Normalizing")
-RS = RobustScaler()
-train = RS.fit_transform(train)
-test = RS.transform(test)
+    print("Normalizing")
+    RS = RobustScaler()
+    train = RS.fit_transform(train)
+    test = RS.transform(test)
 
-print("Reshaping")
-train = train.reshape(-1, 80, train.shape[-1])
-test = test.reshape(-1, 80, train.shape[-1])
+    print("Reshaping")
+    train = train.reshape(-1, 80, train.shape[-1])
+    test = test.reshape(-1, 80, train.shape[-1])
 
     #np.save('train',train)
     #np.save('test',test)
@@ -261,4 +261,4 @@ for epoch in range(args.epochs):
         best_metric=val_metric
         torch.save(model.state_dict(),f'{model_dir}/model{args.fold}.pth')
         with open(f'{results_dir}/fold{args.fold}.p','wb+') as f:
-            pickle.dump([preds,truths],f)
+            pickle.dump([preds,truths,masks],f)

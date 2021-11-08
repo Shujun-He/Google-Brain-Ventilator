@@ -130,7 +130,7 @@ results_dir=f'{args.pos_encode}_rnn{args.rnnlayers}_transformer{args.nlayers}_va
 MODELS=[]
 for fold in range(args.nfolds):
     model = SAKTModel(args.nfeatures, 10, 1, embed_dim=args.embed_dim, pos_encode=args.pos_encode,
-                      max_seq=args.max_seq, nlayers=args.nlayers,
+                      max_seq=args.max_seq, nlayers=args.nlayers,rnnlayers=args.rnnlayers,
                       dropout=args.dropout,nheads=args.nheads).to(device)
     model=nn.DataParallel(model)
     model.load_state_dict(torch.load(f'{model_dir}/model{fold}.pth'))

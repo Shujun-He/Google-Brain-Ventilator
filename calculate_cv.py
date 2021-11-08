@@ -12,7 +12,7 @@ for i in range(nfolds):
     # df=pd.read_csv(f'LSTM_logs/log_fold{i}.csv')
     # min_maes.append(df.val_mcmae.min())
     with open(f'LSTM_rnn3_transformer3_val_results/fold{i}.p','rb') as f:
-        preds, truths, u_in, mask=pickle.load(f)
+        preds, truths, mask=pickle.load(f)
 
     predictions.append(preds)
     ground_truths.append(truths)
