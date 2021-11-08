@@ -1,4 +1,6 @@
-# Google-Brain-Ventilator
+# Part of 1st place solution of Google-Brain-Ventilator competition
+
+https://www.kaggle.com/c/ventilator-pressure-prediction/overview
 
 1. ```run.sh``` is used to run training.
 3. ```calculate_cv.py``` calculates cv and outputs in ```cv.txt```
