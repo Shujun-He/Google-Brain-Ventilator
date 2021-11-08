@@ -1,6 +1,7 @@
-# Part of 1st place solution of Google-Brain-Ventilator competition
+# Part of 1st place solution (LSTM CNN Transformer Encoder) of Google-Brain-Ventilator competition 
 
-https://www.kaggle.com/c/ventilator-pressure-prediction/overview
+Competition website: https://www.kaggle.com/c/ventilator-pressure-prediction/overview
+Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/discussion/285256
 
 1. ```run.sh``` is used to run training.
 3. ```calculate_cv.py``` calculates cv and outputs in ```cv.txt```
