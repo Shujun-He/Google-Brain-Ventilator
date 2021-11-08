@@ -1,9 +1,8 @@
 # Google-Brain-Ventilator
 
-1. ```run1.sh``` and ```run2.sh``` are the scripts i use to run training. usually i nohup them w ```run.sh```
-2. ```validate.sh``` does validation and feature importance
+1. ```run.sh``` is used to run training.
 3. ```calculate_cv.py``` calculates cv and outputs in ```cv.txt```
-4. ```predict.sh``` to make predictions, generate prediction file, and save 10-fold predictions
+3. ```predict.sh``` to make predictions, generate prediction file, and save 10-fold predictions
 
 ## files
 1. ```Network.py``` has the architecture
