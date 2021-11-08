@@ -1,6 +1,6 @@
 # Part of 1st place solution (LSTM CNN Transformer Encoder) of Google-Brain-Ventilator competition 
 
-Competition website: https://www.kaggle.com/c/ventilator-pressure-prediction/overview
+Competition website: https://www.kaggle.com/c/ventilator-pressure-prediction/overview <br />
 Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/discussion/285256
 
 1. ```run.sh``` is used to run training.
