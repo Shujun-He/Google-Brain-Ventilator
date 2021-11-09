@@ -8,7 +8,7 @@ Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/d
 1. Pytorch
 2. Ranger optimizer: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
 3. Sklearn
-
+4. tqdm
 
 ## To run
 
