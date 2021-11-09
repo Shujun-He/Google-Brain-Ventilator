@@ -2,15 +2,8 @@ import numpy as np
 import pandas as pd
 import gc
 import random
-from tqdm import tqdm
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import train_test_split
-
-import matplotlib.pyplot as plt
-
-import seaborn as sns
-import matplotlib.pyplot as plt
-
 import torch
 import torch.nn as nn
 import torch.nn.utils.rnn as rnn_utils
@@ -21,14 +14,6 @@ import time
 from Dataset import *
 from Network import *
 from Functions import *
-
-try:
-    #from apex.parallel import DistributedDataParallel as DDP
-    from apex.fp16_utils import *
-    from apex import amp, optimizers
-    from apex.multi_tensor_apply import multi_tensor_applier
-except ImportError:
-    raise ImportError("Please install apex from https://www.github.com/nvidia/apex to run this example.")
 from ranger import Ranger
 import pickle
 import argparse
@@ -101,8 +86,8 @@ else:
     train = train.reshape(-1, 80, train.shape[-1])
     test = test.reshape(-1, 80, train.shape[-1])
 
-    #np.save('train',train)
-    #np.save('test',test)
+    np.save('train',train)
+    np.save('test',test)
 
 args.nfeatures=train.shape[-1]
 #exit()
