@@ -3,6 +3,15 @@
 Competition website: https://www.kaggle.com/c/ventilator-pressure-prediction/overview <br />
 Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/discussion/285256
 
+# Packages you need
+
+1. Pytorch
+2. Ranger optimizer: https://github.com/lessw2020/Ranger-Deep-Learning-Optimizer
+3. Sklearn
+
+
+## To run
+
 1. ```run.sh``` is used to run training. The only argument you need to change in run.sh is the ```--path``` argument. Change it to where you have ```train.csv``` and ```test.csv```
 3. ```calculate_cv.py``` calculates cv and outputs in ```cv.txt```
 3. ```predict.sh``` to make predictions, generate prediction file, and save 10-fold predictions. Similar to 1., change ```--path``` to where you have ```train.csv```, ```test.csv```, and ```sample_submission.csv```
