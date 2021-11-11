@@ -5,7 +5,7 @@ Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/d
 
 ## Features
 
-Features I use include a few lag and diff features, which are basically previous values of u_in and difference between current u_in and previous u_ins. R and C are one-hot encoded with combinations of R and C one-hot encoded as well. Additionally, cumulative u_in integrated over time is also calculated (```area_true```). For more details, see ```add_features``` ```Functions.py```.
+Features I use include a few lag and diff features, which are basically previous values of u_in and differences between current u_in and previous u_in. R and C are one-hot encoded with combinations of R and C one-hot encoded as well. Additionally, cumulative u_in integrated over time is also calculated (```area_true```). For more details, see ```add_features``` ```Functions.py```.
 
 ## Architecture
 
