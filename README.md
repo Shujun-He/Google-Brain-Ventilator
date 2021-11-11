@@ -1,7 +1,21 @@
-# Part of 1st place solution (LSTM CNN Transformer Encoder) of Google-Brain-Ventilator competition 
+# Part of 1st place solution (LSTM CNN Transformer Encoder) of Google-Brain-Ventilator competition
 
 Competition website: https://www.kaggle.com/c/ventilator-pressure-prediction/overview <br />
 Our solution write-up: https://www.kaggle.com/c/ventilator-pressure-prediction/discussion/285256
+
+## Features
+
+Features I use include a few lag and diff features, which are basically previous values of u_in and difference between current u_in and previous u_ins. R and C are one-hot encoded with combinations of R and C one-hot encoded as well. Additionally, cumulative u_in integrated over time is also calculated (```area_true```). For more details, see ```add_features``` ```Functions.py```.
+
+## Architecture
+
+My deep learning architecture is a combination of LSTM, 1D convolution, and transformers. LSTM is necessary to model this data because of target pressure's heavy dependence on previous time points. Convolution in conjunction with transformers is a good combination to model global dependencies while making up for transformers' inability to capture local interactions.
+
+Since I'm using a series of many different modules, the network becomes quite deep. Eventually, I ran into some issues with gradient propagation since ```nn.LSTM``` does not have residual connection. Therefore I created a new module called ```ResidualLSTM```, which adds a Feedforward Network (FFN) and connects the input to the LSTM with the output after FFN with a residual connection. Below is a simplified visualization of the architecture (Nl is the number of ResidualLSTM blocks and Nt is the number of convolution+transformer blocks). 
+
+<p align="center">
+  <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
+</p>
 
 ## Packages you need
 
