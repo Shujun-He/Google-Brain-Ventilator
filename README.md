@@ -11,10 +11,10 @@ Features I use include a few lag and diff features, which are basically previous
 
 My deep learning architecture is a combination of LSTM, 1D convolution, and transformers. LSTM is necessary to model this data because of target pressure's heavy dependence on previous time points. Convolution in conjunction with transformers is a good combination to model global dependencies while making up for transformers' inability to capture local interactions.
 
-Since I'm using a series of many different modules, the network becomes quite deep. Eventually, I ran into some issues with gradient propagation since ```nn.LSTM``` does not have residual connection. Therefore I created a new module called ```ResidualLSTM```, which adds a Feedforward Network (FFN) and connects the input to the LSTM with the output after FFN with a residual connection. Below is a simplified visualization of the architecture (Nl is the number of ResidualLSTM blocks and Nt is the number of convolution+transformer blocks). 
+Since I'm using a series of many different modules, the network becomes quite deep. Eventually, I ran into some issues with gradient propagation since ```nn.LSTM``` does not have residual connection. Therefore I created a new module called ```ResidualLSTM```, which adds a Feedforward Network (FFN) and connects the input to the LSTM with the output after FFN with a residual connection. Below is a simplified visualization of the architecture (Nl is the number of ResidualLSTM blocks and Nt is the number of convolution+transformer blocks).
 
 <p align="center">
-  <img src="https://github.com/Shujun-He/Nucleic-Transformer/blob/master/graphics/overview.PNG"/>
+  <img src=""/>
 </p>
 
 ## Packages you need
